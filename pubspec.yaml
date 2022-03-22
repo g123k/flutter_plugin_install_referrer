@@ -1,0 +1,27 @@
+name: install_referrer
+description: Detect from where your application was installed (Google Play, App Store, TestFlight…)
+version: 1.0.0
+homepage: https://github.com/g123k/flutter_plugin_install_referrer
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  pigeon: ^2.0.2
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: fr.g123k.install_referrer
+        pluginClass: InstallReferrerPlugin
+      ios:
+        pluginClass: InstallReferrerPlugin
