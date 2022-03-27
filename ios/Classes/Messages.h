@@ -25,13 +25,20 @@ typedef NS_ENUM(NSUInteger, IRIRInstallationPlatform) {
   IRIRInstallationPlatformUnknown = 6,
 };
 
+typedef NS_ENUM(NSUInteger, IRIRPlatform) {
+  IRIRPlatformIos = 0,
+  IRIRPlatformAndroid = 1,
+};
+
 @class IRIRInstallationReferer;
 
 @interface IRIRInstallationReferer : NSObject
 + (instancetype)makeWithType:(IRIRInstallationType)type
-    platform:(IRIRInstallationPlatform)platform;
+    installationPlatform:(IRIRInstallationPlatform)installationPlatform
+    platform:(IRIRPlatform)platform;
 @property(nonatomic, assign) IRIRInstallationType type;
-@property(nonatomic, assign) IRIRInstallationPlatform platform;
+@property(nonatomic, assign) IRIRInstallationPlatform installationPlatform;
+@property(nonatomic, assign) IRIRPlatform platform;
 @end
 
 /// The codec used by IRInstallReferrerInternalAPI.

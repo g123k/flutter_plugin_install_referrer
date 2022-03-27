@@ -25,12 +25,36 @@ class MyApp extends StatelessWidget {
               } else if (result.hasError) {
                 return const Text('Unable to detect your referrer');
               } else {
-                return Text('Referrer: ${result.data}');
+                return Text(
+                  'Referrer:\n${toReadableString(result.data!)}',
+                  textAlign: TextAlign.center,
+                );
               }
             },
           ),
         ),
       ),
     );
+  }
+
+  String toReadableString(InstallationAppReferrer referrer) {
+    switch (referrer) {
+      case InstallationAppReferrer.iosAppStore:
+        return "Apple - App Store";
+      case InstallationAppReferrer.iosTestFlight:
+        return "Apple - Test Flight";
+      case InstallationAppReferrer.iosDebug:
+        return "Apple - Debug";
+      case InstallationAppReferrer.androidGooglePlay:
+        return "Android - Google Play";
+      case InstallationAppReferrer.androidAmazonAppStore:
+        return "Android - Amazon App Store";
+      case InstallationAppReferrer.androidSamsungAppShop:
+        return "Android - Samsung App Shop";
+      case InstallationAppReferrer.androidManually:
+        return "Android - Manual installation";
+      case InstallationAppReferrer.androidDebug:
+        return "Android - Debug";
+    }
   }
 }

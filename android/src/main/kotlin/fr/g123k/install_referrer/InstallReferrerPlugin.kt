@@ -84,7 +84,8 @@ class InstallReferrerPlugin : FlutterPlugin, InstallReferrerPigeon.InstallReferr
     ): InstallReferrerPigeon.IRInstallationReferer {
         return InstallReferrerPigeon.IRInstallationReferer().apply {
             this.type = type
-            this.platform = platform
+            this.installationPlatform = platform
+            this.platform = InstallReferrerPigeon.IRPlatform.android
         }
     }
 }

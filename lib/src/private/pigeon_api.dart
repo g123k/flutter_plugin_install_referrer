@@ -25,18 +25,26 @@ enum IRInstallationPlatform {
   unknown,
 }
 
+enum IRPlatform {
+  ios,
+  android,
+}
+
 class IRInstallationReferer {
   IRInstallationReferer({
     this.type,
+    this.installationPlatform,
     this.platform,
   });
 
   IRInstallationType? type;
-  IRInstallationPlatform? platform;
+  IRInstallationPlatform? installationPlatform;
+  IRPlatform? platform;
 
   Object encode() {
     final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
     pigeonMap['type'] = type == null ? null : type!.index;
+    pigeonMap['installationPlatform'] = installationPlatform == null ? null : installationPlatform!.index;
     pigeonMap['platform'] = platform == null ? null : platform!.index;
     return pigeonMap;
   }
@@ -47,8 +55,11 @@ class IRInstallationReferer {
       type: pigeonMap['type'] != null
           ? IRInstallationType.values[pigeonMap['type']! as int]
           : null,
+      installationPlatform: pigeonMap['installationPlatform'] != null
+          ? IRInstallationPlatform.values[pigeonMap['installationPlatform']! as int]
+          : null,
       platform: pigeonMap['platform'] != null
-          ? IRInstallationPlatform.values[pigeonMap['platform']! as int]
+          ? IRPlatform.values[pigeonMap['platform']! as int]
           : null,
     );
   }

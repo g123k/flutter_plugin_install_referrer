@@ -49,6 +49,16 @@ public class InstallReferrerPigeon {
     }
   }
 
+  public enum IRPlatform {
+    ios(0),
+    android(1);
+
+    private int index;
+    private IRPlatform(final int index) {
+      this.index = index;
+    }
+  }
+
   /** Generated class from Pigeon that represents data sent in messages. */
   public static class IRInstallationReferer {
     private @Nullable IRInstallationType type;
@@ -57,9 +67,15 @@ public class InstallReferrerPigeon {
       this.type = setterArg;
     }
 
-    private @Nullable IRInstallationPlatform platform;
-    public @Nullable IRInstallationPlatform getPlatform() { return platform; }
-    public void setPlatform(@Nullable IRInstallationPlatform setterArg) {
+    private @Nullable IRInstallationPlatform installationPlatform;
+    public @Nullable IRInstallationPlatform getInstallationPlatform() { return installationPlatform; }
+    public void setInstallationPlatform(@Nullable IRInstallationPlatform setterArg) {
+      this.installationPlatform = setterArg;
+    }
+
+    private @Nullable IRPlatform platform;
+    public @Nullable IRPlatform getPlatform() { return platform; }
+    public void setPlatform(@Nullable IRPlatform setterArg) {
       this.platform = setterArg;
     }
 
@@ -69,14 +85,20 @@ public class InstallReferrerPigeon {
         this.type = setterArg;
         return this;
       }
-      private @Nullable IRInstallationPlatform platform;
-      public @NonNull Builder setPlatform(@Nullable IRInstallationPlatform setterArg) {
+      private @Nullable IRInstallationPlatform installationPlatform;
+      public @NonNull Builder setInstallationPlatform(@Nullable IRInstallationPlatform setterArg) {
+        this.installationPlatform = setterArg;
+        return this;
+      }
+      private @Nullable IRPlatform platform;
+      public @NonNull Builder setPlatform(@Nullable IRPlatform setterArg) {
         this.platform = setterArg;
         return this;
       }
       public @NonNull IRInstallationReferer build() {
         IRInstallationReferer pigeonReturn = new IRInstallationReferer();
         pigeonReturn.setType(type);
+        pigeonReturn.setInstallationPlatform(installationPlatform);
         pigeonReturn.setPlatform(platform);
         return pigeonReturn;
       }
@@ -84,6 +106,7 @@ public class InstallReferrerPigeon {
     @NonNull Map<String, Object> toMap() {
       Map<String, Object> toMapResult = new HashMap<>();
       toMapResult.put("type", type == null ? null : type.index);
+      toMapResult.put("installationPlatform", installationPlatform == null ? null : installationPlatform.index);
       toMapResult.put("platform", platform == null ? null : platform.index);
       return toMapResult;
     }
@@ -91,8 +114,10 @@ public class InstallReferrerPigeon {
       IRInstallationReferer pigeonResult = new IRInstallationReferer();
       Object type = map.get("type");
       pigeonResult.setType(type == null ? null : IRInstallationType.values()[(int)type]);
+      Object installationPlatform = map.get("installationPlatform");
+      pigeonResult.setInstallationPlatform(installationPlatform == null ? null : IRInstallationPlatform.values()[(int)installationPlatform]);
       Object platform = map.get("platform");
-      pigeonResult.setPlatform(platform == null ? null : IRInstallationPlatform.values()[(int)platform]);
+      pigeonResult.setPlatform(platform == null ? null : IRPlatform.values()[(int)platform]);
       return pigeonResult;
     }
   }

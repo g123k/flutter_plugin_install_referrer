@@ -12,18 +12,23 @@ import 'package:pigeon/pigeon.dart';
     dartOptions: DartOptions(
       isNullSafe: true,
     ),
-    dartOut: './lib/src/api.dart',
-    objcHeaderOut: './ios/Classes/messages.h',
-    objcSourceOut: './ios/Classes/messages.m',
+    dartOut: './lib/src/private/pigeon_api.dart',
+    objcHeaderOut: './ios/Classes/Messages.h',
+    objcSourceOut: './ios/Classes/Messages.m',
     javaOut:
         './android/src/main/java/fr/g123k/install_referrer/InstallReferrerPigeon.java',
   ),
 )
 class IRInstallationReferer {
   final IRInstallationType? type;
-  final IRInstallationPlatform? platform;
+  final IRInstallationPlatform? installationPlatform;
+  final IRPlatform? platform;
 
-  IRInstallationReferer({this.type, this.platform});
+  IRInstallationReferer({
+    this.type,
+    this.platform,
+    this.installationPlatform,
+  });
 }
 
 enum IRInstallationType {
@@ -41,6 +46,11 @@ enum IRInstallationPlatform {
   samsungAppShop,
   manually,
   unknown,
+}
+
+enum IRPlatform {
+  ios,
+  android,
 }
 
 @HostApi()

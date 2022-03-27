@@ -4,14 +4,14 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'install_referrer'
-  s.version          = '0.0.1'
+  s.version          = '1.0.0'
   s.summary          = 'Detect from where your application was installed (Google Play, App Store, TestFlight…)'
   s.description      = <<-DESC
 Detect from where your application was installed (Google Play, App Store, TestFlight…)
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://daad.mobi'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'DAAD' => 'moi@edouard-marquez.me' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'

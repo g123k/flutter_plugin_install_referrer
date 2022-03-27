@@ -1,6 +1,6 @@
 enum InstallationAppReferrer {
-  appleAppStore,
-  appleTestFlight,
+  iosAppStore,
+  iosTestFlight,
   iosDebug,
   androidGooglePlay,
   androidAmazonAppStore,
