@@ -11,7 +11,7 @@ Feel free to open a PR to support new platforms.
 
 ## Installation
 
-1. Add `install_referrer: ^1.0.0` to your `pubspec.yaml` file.
+1. Add `install_referrer: ^1.0.1` to your `pubspec.yaml` file.
 2. Import `import 'package:install_referrer/install_referrer.dart';`
 3. Get the value by invoking the `Future` `InstallReferrer.referrer`
 
@@ -31,7 +31,9 @@ If the application was installed from a third party app (eg: GMail, Google Drive
 
 If the application was installed from a store (FDroid, Amazon App Shop…) which was not preinstalled on the device (a _"non-system"_ app), it will also be considered as a **manual installation** (`InstallationAppReferrer.androidManually`).
 
-### Android
+If the Android application is in debug mode, it will be marked as `InstallationAppReferrer.androidDebug`.
+
+### iOS
 
 | Store            | Value                                            |
 |------------------|--------------------------------------------------|

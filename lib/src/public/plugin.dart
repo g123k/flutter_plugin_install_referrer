@@ -6,6 +6,10 @@ class InstallReferrer {
   static late final InstallReferrerInternalAPI _api =
       InstallReferrerInternalAPI();
 
+  /// Detect which application (or store) installed your application
+  ///
+  /// On Android, system apps are only recognized, otherwise they will be
+  /// considered as manual installation
   static Future<InstallationAppReferrer> get referrer async {
     IRInstallationReferer referrer = await _api.detectReferrer();
 
