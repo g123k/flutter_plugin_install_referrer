@@ -39,11 +39,13 @@ static id GetNullableObjectAtIndex(NSArray* array, NSInteger key) {
 @implementation IRIRInstallationReferer
 + (instancetype)makeWithType:(IRIRInstallationType)type
     installationPlatform:(IRIRInstallationPlatform)installationPlatform
-    platform:(IRIRPlatform)platform {
+    platform:(IRIRPlatform)platform
+    packageName:(nullable NSString *)packageName {
   IRIRInstallationReferer* pigeonResult = [[IRIRInstallationReferer alloc] init];
   pigeonResult.type = type;
   pigeonResult.installationPlatform = installationPlatform;
   pigeonResult.platform = platform;
+  pigeonResult.packageName = packageName;
   return pigeonResult;
 }
 + (IRIRInstallationReferer *)fromMap:(NSDictionary *)dict {
@@ -51,10 +53,11 @@ static id GetNullableObjectAtIndex(NSArray* array, NSInteger key) {
   pigeonResult.type = [GetNullableObject(dict, @"type") integerValue];
   pigeonResult.installationPlatform = [GetNullableObject(dict, @"installationPlatform") integerValue];
   pigeonResult.platform = [GetNullableObject(dict, @"platform") integerValue];
+  pigeonResult.packageName = GetNullableObject(dict, @"packageName");
   return pigeonResult;
 }
 - (NSDictionary *)toMap {
-  return [NSDictionary dictionaryWithObjectsAndKeys:@(self.type), @"type", @(self.installationPlatform), @"installationPlatform", @(self.platform), @"platform", nil];
+  return [NSDictionary dictionaryWithObjectsAndKeys:@(self.type), @"type", @(self.installationPlatform), @"installationPlatform", @(self.platform), @"platform", (self.packageName ? self.packageName : [NSNull null]), @"packageName", nil];
 }
 @end
 

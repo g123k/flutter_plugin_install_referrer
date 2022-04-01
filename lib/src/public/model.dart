@@ -1,3 +1,21 @@
+/// A wrapper containing the [InstallationAppReferrer] result, with the
+/// package name (Android) or App ID (iOS)
+class InstallationApp {
+  /// Package name (Android) or App ID (iOS)
+  final String? packageName;
+  final InstallationAppReferrer referrer;
+
+  InstallationApp({
+    required this.packageName,
+    required this.referrer,
+  });
+
+  @override
+  String toString() {
+    return 'InstallationApp{packageName: $packageName, referrer: $referrer}';
+  }
+}
+
 /// Result from a call to [InstallReferrer.referrer]
 enum InstallationAppReferrer {
   // iOS - Apple App Store

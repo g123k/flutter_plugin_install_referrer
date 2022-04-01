@@ -13,10 +13,9 @@ Feel free to open a PR to support new platforms.
 
 ## Installation
 
-1. Add `install_referrer: ^1.0.2` to your `pubspec.yaml` file.
+1. Add `install_referrer: ^1.1.0` to your `pubspec.yaml` file.
 2. Import `import 'package:install_referrer/install_referrer.dart';`
 3. Get the value by invoking the `Future` `InstallReferrer.referrer`
-
 
 ## Possibles values
 
@@ -44,3 +43,8 @@ If the Android application is in debug mode, it will be marked as `InstallationA
 | Test Flight      | `InstallationAppReferrer.iosTestFlight`          |
 
 If the iOS application is in debug mode (eg: from the simulator), it will be marked as `InstallationAppReferrer.iosDebug`.
+
+
+## Package name
+
+You can also get the package name (Android) or app id (iOS), by calling instead `InstallReferrer.app`

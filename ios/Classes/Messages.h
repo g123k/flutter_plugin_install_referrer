@@ -36,10 +36,12 @@ typedef NS_ENUM(NSUInteger, IRIRPlatform) {
 @interface IRIRInstallationReferer : NSObject
 + (instancetype)makeWithType:(IRIRInstallationType)type
     installationPlatform:(IRIRInstallationPlatform)installationPlatform
-    platform:(IRIRPlatform)platform;
+    platform:(IRIRPlatform)platform
+    packageName:(nullable NSString *)packageName;
 @property(nonatomic, assign) IRIRInstallationType type;
 @property(nonatomic, assign) IRIRInstallationPlatform installationPlatform;
 @property(nonatomic, assign) IRIRPlatform platform;
+@property(nonatomic, copy, nullable) NSString * packageName;
 @end
 
 /// The codec used by IRInstallReferrerInternalAPI.

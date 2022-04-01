@@ -80,6 +80,12 @@ public class InstallReferrerPigeon {
       this.platform = setterArg;
     }
 
+    private @Nullable String packageName;
+    public @Nullable String getPackageName() { return packageName; }
+    public void setPackageName(@Nullable String setterArg) {
+      this.packageName = setterArg;
+    }
+
     public static class Builder {
       private @Nullable IRInstallationType type;
       public @NonNull Builder setType(@Nullable IRInstallationType setterArg) {
@@ -96,11 +102,17 @@ public class InstallReferrerPigeon {
         this.platform = setterArg;
         return this;
       }
+      private @Nullable String packageName;
+      public @NonNull Builder setPackageName(@Nullable String setterArg) {
+        this.packageName = setterArg;
+        return this;
+      }
       public @NonNull IRInstallationReferer build() {
         IRInstallationReferer pigeonReturn = new IRInstallationReferer();
         pigeonReturn.setType(type);
         pigeonReturn.setInstallationPlatform(installationPlatform);
         pigeonReturn.setPlatform(platform);
+        pigeonReturn.setPackageName(packageName);
         return pigeonReturn;
       }
     }
@@ -109,6 +121,7 @@ public class InstallReferrerPigeon {
       toMapResult.put("type", type == null ? null : type.index);
       toMapResult.put("installationPlatform", installationPlatform == null ? null : installationPlatform.index);
       toMapResult.put("platform", platform == null ? null : platform.index);
+      toMapResult.put("packageName", packageName);
       return toMapResult;
     }
     static @NonNull IRInstallationReferer fromMap(@NonNull Map<String, Object> map) {
@@ -119,6 +132,8 @@ public class InstallReferrerPigeon {
       pigeonResult.setInstallationPlatform(installationPlatform == null ? null : IRInstallationPlatform.values()[(int)installationPlatform]);
       Object platform = map.get("platform");
       pigeonResult.setPlatform(platform == null ? null : IRPlatform.values()[(int)platform]);
+      Object packageName = map.get("packageName");
+      pigeonResult.setPackageName((String)packageName);
       return pigeonResult;
     }
   }

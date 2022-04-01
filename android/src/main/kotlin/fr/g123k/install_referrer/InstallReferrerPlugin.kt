@@ -91,6 +91,7 @@ class InstallReferrerPlugin : FlutterPlugin, InstallReferrerPigeon.InstallReferr
     ): InstallReferrerPigeon.IRInstallationReferer {
         return InstallReferrerPigeon.IRInstallationReferer().apply {
             this.type = type
+            this.packageName = context!!.packageName
             this.installationPlatform = platform
             this.platform = InstallReferrerPigeon.IRPlatform.android
         }

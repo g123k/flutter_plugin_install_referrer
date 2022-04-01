@@ -23,11 +23,13 @@ class IRInstallationReferer {
   final IRInstallationType? type;
   final IRInstallationPlatform? installationPlatform;
   final IRPlatform? platform;
+  final String? packageName;
 
   IRInstallationReferer({
     this.type,
     this.platform,
     this.installationPlatform,
+    this.packageName,
   });
 }
 

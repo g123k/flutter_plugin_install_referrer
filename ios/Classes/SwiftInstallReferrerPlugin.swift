@@ -23,6 +23,7 @@ public class SwiftInstallReferrerPlugin: NSObject, FlutterPlugin, IRInstallRefer
     public func detectReferrer(completion: @escaping (IRIRInstallationReferer?, FlutterError?) -> Void) {
         let result = IRIRInstallationReferer.init()
         result.platform = IRIRPlatform.ios
+        result.packageName = Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String
         
         if (isDebug) {
             result.type = IRIRInstallationType.debug

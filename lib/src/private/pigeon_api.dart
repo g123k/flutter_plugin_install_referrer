@@ -36,17 +36,20 @@ class IRInstallationReferer {
     this.type,
     this.installationPlatform,
     this.platform,
+    this.packageName,
   });
 
   IRInstallationType? type;
   IRInstallationPlatform? installationPlatform;
   IRPlatform? platform;
+  String? packageName;
 
   Object encode() {
     final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
     pigeonMap['type'] = type == null ? null : type!.index;
     pigeonMap['installationPlatform'] = installationPlatform == null ? null : installationPlatform!.index;
     pigeonMap['platform'] = platform == null ? null : platform!.index;
+    pigeonMap['packageName'] = packageName;
     return pigeonMap;
   }
 
@@ -62,6 +65,7 @@ class IRInstallationReferer {
       platform: pigeonMap['platform'] != null
           ? IRPlatform.values[pigeonMap['platform']! as int]
           : null,
+      packageName: pigeonMap['packageName'] as String?,
     );
   }
 }

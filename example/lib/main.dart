@@ -17,16 +17,17 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: FutureBuilder(
-            future: InstallReferrer.referrer,
-            builder: (BuildContext context,
-                AsyncSnapshot<InstallationAppReferrer> result) {
+            future: InstallReferrer.app,
+            builder:
+                (BuildContext context, AsyncSnapshot<InstallationApp> result) {
               if (!result.hasData) {
                 return const CircularProgressIndicator.adaptive();
               } else if (result.hasError) {
                 return const Text('Unable to detect your referrer');
               } else {
                 return Text(
-                  'Referrer:\n${toReadableString(result.data!)}',
+                  'Package name:\n${result.data!.packageName ?? 'Unknown'}\n'
+                  'Referrer:\n${referrerToReadableString(result.data!.referrer)}',
                   textAlign: TextAlign.center,
                 );
               }
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  String toReadableString(InstallationAppReferrer referrer) {
+  String referrerToReadableString(InstallationAppReferrer referrer) {
     switch (referrer) {
       case InstallationAppReferrer.iosAppStore:
         return "Apple - App Store";
@@ -49,6 +50,8 @@ class MyApp extends StatelessWidget {
         return "Android - Google Play";
       case InstallationAppReferrer.androidAmazonAppStore:
         return "Android - Amazon App Store";
+      case InstallationAppReferrer.androidHuaweiAppGallery:
+        return "Android - Huawei App Gallery";
       case InstallationAppReferrer.androidSamsungAppShop:
         return "Android - Samsung App Shop";
       case InstallationAppReferrer.androidManually:
