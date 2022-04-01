@@ -1,3 +1,7 @@
+## 1.2.0
+
+* Two Widgets (`InstallReferrerDetectorListener` and `InstallReferrerDetectorBuilder`) allows to get the result of `InstallReferrer.app` directly in your Widgets hierarchy 
+ 
 ## 1.1.0
 
 * Package name / App Id now available

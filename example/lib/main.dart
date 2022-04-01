@@ -6,7 +6,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +18,47 @@ class MyApp extends StatelessWidget {
           title: const Text('Installation Referrer plugin example app'),
         ),
         body: Center(
-          child: FutureBuilder(
-            future: InstallReferrer.app,
-            builder:
-                (BuildContext context, AsyncSnapshot<InstallationApp> result) {
-              if (!result.hasData) {
-                return const CircularProgressIndicator.adaptive();
-              } else if (result.hasError) {
-                return const Text('Unable to detect your referrer');
-              } else {
-                return Text(
-                  'Package name:\n${result.data!.packageName ?? 'Unknown'}\n'
-                  'Referrer:\n${referrerToReadableString(result.data!.referrer)}',
-                  textAlign: TextAlign.center,
-                );
-              }
-            },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FutureBuilder(
+                future: InstallReferrer.app,
+                builder: (BuildContext context,
+                    AsyncSnapshot<InstallationApp> result) {
+                  if (!result.hasData) {
+                    return const CircularProgressIndicator.adaptive();
+                  } else if (result.hasError) {
+                    return const Text('Unable to detect your referrer');
+                  } else {
+                    return Text(
+                      'Package name:\n${result.data!.packageName ?? 'Unknown'}\n'
+                      'Referrer:\n${referrerToReadableString(result.data!.referrer)}',
+                      textAlign: TextAlign.center,
+                    );
+                  }
+                },
+              ),
+              InstallReferrerDetectorBuilder(
+                builder: (BuildContext context, InstallationApp? app) {
+                  if (app == null) {
+                    return const CircularProgressIndicator.adaptive();
+                  } else {
+                    return Text(
+                      'Package name:\n${app.packageName ?? 'Unknown'}\n'
+                      'Referrer:\n${referrerToReadableString(app.referrer)}',
+                      textAlign: TextAlign.center,
+                    );
+                  }
+                },
+              ),
+              InstallReferrerDetectorListener(
+                child: const Text('Listener'),
+                onReferrerAvailable: (InstallationApp? app) {
+                  // ignore: avoid_print
+                  print(app?.referrer);
+                },
+              ),
+            ],
           ),
         ),
       ),

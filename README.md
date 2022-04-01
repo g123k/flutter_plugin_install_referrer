@@ -13,7 +13,7 @@ Feel free to open a PR to support new platforms.
 
 ## Installation
 
-1. Add `install_referrer: ^1.1.0` to your `pubspec.yaml` file.
+1. Add `install_referrer: ^1.2.0` to your `pubspec.yaml` file.
 2. Import `import 'package:install_referrer/install_referrer.dart';`
 3. Get the value by invoking the `Future` `InstallReferrer.referrer`
 
@@ -48,3 +48,33 @@ If the iOS application is in debug mode (eg: from the simulator), it will be mar
 ## Package name
 
 You can also get the package name (Android) or app id (iOS), by calling instead `InstallReferrer.app`
+
+## Widgets
+
+If you want to receive the result directly in a Widget, you have two choices: `InstallReferrerDetectorListener` and `InstallReferrerDetectorBuilder` :
+
+
+```dart
+InstallReferrerDetectorBuilder(
+  builder: (BuildContext context, InstallationApp? app) {
+    if (app == null) {
+      return const CircularProgressIndicator.adaptive();
+    } else {
+      return Text(
+        'Package name:\n${app.packageName ?? 'Unknown'}\n'
+        'Referrer:\n${referrerToReadableString(app.referrer)}',
+          textAlign: TextAlign.center,
+      );
+    }
+  },
+);
+```
+
+```dart
+InstallReferrerDetectorListener(
+  child: YourWidget(),
+    onReferrerAvailable: (InstallationApp? app) {
+      // TODO
+    },
+);
+```
