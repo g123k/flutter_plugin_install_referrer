@@ -20,6 +20,7 @@ enum IRInstallationPlatform {
   appleTestflight,
   googlePlay,
   amazonAppStore,
+  huaweiAppGallery,
   samsungAppShop,
   manually,
   unknown,
@@ -44,8 +45,7 @@ class IRInstallationReferer {
   Object encode() {
     final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
     pigeonMap['type'] = type == null ? null : type!.index;
-    pigeonMap['installationPlatform'] =
-        installationPlatform == null ? null : installationPlatform!.index;
+    pigeonMap['installationPlatform'] = installationPlatform == null ? null : installationPlatform!.index;
     pigeonMap['platform'] = platform == null ? null : platform!.index;
     return pigeonMap;
   }
@@ -57,8 +57,7 @@ class IRInstallationReferer {
           ? IRInstallationType.values[pigeonMap['type']! as int]
           : null,
       installationPlatform: pigeonMap['installationPlatform'] != null
-          ? IRInstallationPlatform
-              .values[pigeonMap['installationPlatform']! as int]
+          ? IRInstallationPlatform.values[pigeonMap['installationPlatform']! as int]
           : null,
       platform: pigeonMap['platform'] != null
           ? IRPlatform.values[pigeonMap['platform']! as int]
@@ -69,25 +68,25 @@ class IRInstallationReferer {
 
 class _InstallReferrerInternalAPICodec extends StandardMessageCodec {
   const _InstallReferrerInternalAPICodec();
-
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
     if (value is IRInstallationReferer) {
       buffer.putUint8(128);
       writeValue(buffer, value.encode());
-    } else {
+    } else 
+{
       super.writeValue(buffer, value);
     }
   }
-
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 128:
+      case 128:       
         return IRInstallationReferer.decode(readValue(buffer)!);
-
-      default:
+      
+      default:      
         return super.readValueOfType(type, buffer);
+      
     }
   }
 }
@@ -96,8 +95,7 @@ class InstallReferrerInternalAPI {
   /// Constructor for [InstallReferrerInternalAPI].  The [binaryMessenger] named argument is
   /// available for dependency injection.  If it is left null, the default
   /// BinaryMessenger will be used which routes to the host platform.
-  InstallReferrerInternalAPI({BinaryMessenger? binaryMessenger})
-      : _binaryMessenger = binaryMessenger;
+  InstallReferrerInternalAPI({BinaryMessenger? binaryMessenger}) : _binaryMessenger = binaryMessenger;
 
   final BinaryMessenger? _binaryMessenger;
 
@@ -105,8 +103,7 @@ class InstallReferrerInternalAPI {
 
   Future<IRInstallationReferer> detectReferrer() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.InstallReferrerInternalAPI.detectReferrer', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.InstallReferrerInternalAPI.detectReferrer', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(null) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -115,8 +112,7 @@ class InstallReferrerInternalAPI {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,

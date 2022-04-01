@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Support for Huawei App Gallery
+
 ## 1.0.1
 
 * Improved documentation

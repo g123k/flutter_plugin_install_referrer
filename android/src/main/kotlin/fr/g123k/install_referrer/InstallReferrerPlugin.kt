@@ -57,6 +57,13 @@ class InstallReferrerPlugin : FlutterPlugin, InstallReferrerPigeon.InstallReferr
                         platform = InstallReferrerPigeon.IRInstallationPlatform.googlePlay,
                     )
                 )
+            } else if (installerPackageName == "com.huawei.appmarket") {
+                result?.success(
+                    generateResult(
+                        type = InstallReferrerPigeon.IRInstallationType.appStore,
+                        platform = InstallReferrerPigeon.IRInstallationPlatform.huaweiAppGallery,
+                    )
+                )
             } else if (installerPackageName == "com.sec.android.app.samsungapps") {
                 result?.success(
                     generateResult(

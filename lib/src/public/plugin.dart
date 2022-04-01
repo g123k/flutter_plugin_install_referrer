@@ -2,6 +2,7 @@ import 'package:install_referrer/install_referrer.dart';
 
 import '../private/pigeon_api.dart';
 
+/// Detect which application (or store) installed an Android or iOS application
 class InstallReferrer {
   static late final InstallReferrerInternalAPI _api =
       InstallReferrerInternalAPI();
@@ -30,6 +31,11 @@ class InstallReferrer {
     }
   }
 
+  /// Detect on which platform the iOS app was installed
+  /// Possible values are:
+  /// - [InstallationAppReferrer.iosAppStore]
+  /// - [InstallationAppReferrer.iosTestFlight]
+  /// - [InstallationAppReferrer.iosDebug]
   static InstallationAppReferrer _iOSReferrer(
     IRInstallationPlatform? platform,
   ) {
@@ -42,6 +48,15 @@ class InstallReferrer {
     }
   }
 
+  /// Detect on which platform the Android app was installed
+  /// Possible values are:
+  /// - [InstallationAppReferrer.androidGooglePlay]
+  /// - [InstallationAppReferrer.androidAmazonAppStore]
+  /// - [InstallationAppReferrer.androidHuaweiAppGallery]
+  /// - [InstallationAppReferrer.androidSamsungAppShop]
+  /// - [InstallationAppReferrer.androidDebug]
+  /// - [InstallationAppReferrer.androidManually]
+  /// - [InstallationAppReferrer.androidDebug]
   static InstallationAppReferrer _androidReferrer(
     IRInstallationPlatform? platform,
     IRInstallationType? type,
@@ -53,6 +68,8 @@ class InstallReferrer {
         return InstallationAppReferrer.androidGooglePlay;
       case IRInstallationPlatform.amazonAppStore:
         return InstallationAppReferrer.androidAmazonAppStore;
+      case IRInstallationPlatform.huaweiAppGallery:
+        return InstallationAppReferrer.androidHuaweiAppGallery;
       case IRInstallationPlatform.samsungAppShop:
         return InstallationAppReferrer.androidSamsungAppShop;
       case IRInstallationPlatform.manually:

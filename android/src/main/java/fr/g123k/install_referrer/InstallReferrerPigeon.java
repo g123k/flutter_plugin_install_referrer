@@ -39,9 +39,10 @@ public class InstallReferrerPigeon {
     appleTestflight(1),
     googlePlay(2),
     amazonAppStore(3),
-    samsungAppShop(4),
-    manually(5),
-    unknown(6);
+    huaweiAppGallery(4),
+    samsungAppShop(5),
+    manually(6),
+    unknown(7);
 
     private int index;
     private IRInstallationPlatform(final int index) {

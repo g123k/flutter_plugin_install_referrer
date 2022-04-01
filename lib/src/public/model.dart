@@ -10,6 +10,8 @@ enum InstallationAppReferrer {
   androidGooglePlay,
   // Android - Amazon AppStore
   androidAmazonAppStore,
+  // Android / Harmony OS - Huawei App Gallery
+  androidHuaweiAppGallery,
   // Android - Samsung AppShop
   androidSamsungAppShop,
   // Android - Manually (from a third party like Chrome, GMail…)

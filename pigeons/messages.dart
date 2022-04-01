@@ -43,6 +43,7 @@ enum IRInstallationPlatform {
   appleTestflight,
   googlePlay,
   amazonAppStore,
+  huaweiAppGallery,
   samsungAppShop,
   manually,
   unknown,
