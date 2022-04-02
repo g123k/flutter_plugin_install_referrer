@@ -1,6 +1,6 @@
 # install_referrer
 
-[![Pub](https://img.shields.io/pub/v/flutter_install_referrer.svg)](https://pub.dartlang.org/packages/install_referrer)
+[![Pub](https://img.shields.io/pub/v/install_referrer.svg)](https://pub.dartlang.org/packages/install_referrer)
 
 A Flutter plugin that allows you to detect how your application was installed.
 
