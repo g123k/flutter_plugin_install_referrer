@@ -1,3 +1,7 @@
+## 1.2.1
+
+* Oppo App Market, Vivo App Store & Xiaomi App Store now supported
+
 ## 1.2.0
 
 * Two Widgets (`InstallReferrerDetectorListener` and `InstallReferrerDetectorBuilder`) allows to get the result of `InstallReferrer.app` directly in your Widgets hierarchy 

@@ -79,8 +79,14 @@ class MyApp extends StatelessWidget {
         return "Android - Amazon App Store";
       case InstallationAppReferrer.androidHuaweiAppGallery:
         return "Android - Huawei App Gallery";
+      case InstallationAppReferrer.androidOppoAppMarket:
+        return "Android - Oppo App Market";
       case InstallationAppReferrer.androidSamsungAppShop:
         return "Android - Samsung App Shop";
+      case InstallationAppReferrer.androidVivoAppStore:
+        return "Android - Vivo App Store";
+      case InstallationAppReferrer.androidXiaomiAppStore:
+        return "Android - Xiaomi App Store";
       case InstallationAppReferrer.androidManually:
         return "Android - Manual installation";
       case InstallationAppReferrer.androidDebug:

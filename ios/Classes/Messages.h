@@ -21,9 +21,12 @@ typedef NS_ENUM(NSUInteger, IRIRInstallationPlatform) {
   IRIRInstallationPlatformGooglePlay = 2,
   IRIRInstallationPlatformAmazonAppStore = 3,
   IRIRInstallationPlatformHuaweiAppGallery = 4,
-  IRIRInstallationPlatformSamsungAppShop = 5,
-  IRIRInstallationPlatformManually = 6,
-  IRIRInstallationPlatformUnknown = 7,
+  IRIRInstallationPlatformOppoAppMarket = 5,
+  IRIRInstallationPlatformSamsungAppShop = 6,
+  IRIRInstallationPlatformVivoAppStore = 7,
+  IRIRInstallationPlatformXiaomiAppStore = 8,
+  IRIRInstallationPlatformManually = 9,
+  IRIRInstallationPlatformUnknown = 10,
 };
 
 typedef NS_ENUM(NSUInteger, IRIRPlatform) {

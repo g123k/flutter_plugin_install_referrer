@@ -71,7 +71,10 @@ class InstallReferrer {
   /// - [InstallationAppReferrer.androidGooglePlay]
   /// - [InstallationAppReferrer.androidAmazonAppStore]
   /// - [InstallationAppReferrer.androidHuaweiAppGallery]
+  /// - [InstallationAppReferrer.androidOppoAppMarket]
   /// - [InstallationAppReferrer.androidSamsungAppShop]
+  /// - [InstallationAppReferrer.androidVivoAppStore]
+  /// - [InstallationAppReferrer.androidXiaomiAppStore]
   /// - [InstallationAppReferrer.androidDebug]
   /// - [InstallationAppReferrer.androidManually]
   /// - [InstallationAppReferrer.androidDebug]
@@ -88,8 +91,14 @@ class InstallReferrer {
         return InstallationAppReferrer.androidAmazonAppStore;
       case IRInstallationPlatform.huaweiAppGallery:
         return InstallationAppReferrer.androidHuaweiAppGallery;
+      case IRInstallationPlatform.oppoAppMarket:
+        return InstallationAppReferrer.androidOppoAppMarket;
       case IRInstallationPlatform.samsungAppShop:
         return InstallationAppReferrer.androidSamsungAppShop;
+      case IRInstallationPlatform.vivoAppStore:
+        return InstallationAppReferrer.androidVivoAppStore;
+      case IRInstallationPlatform.xiaomiAppStore:
+        return InstallationAppReferrer.androidXiaomiAppStore;
       case IRInstallationPlatform.manually:
         if (type == IRInstallationType.debug) {
           return InstallationAppReferrer.androidDebug;

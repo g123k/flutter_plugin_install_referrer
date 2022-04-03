@@ -13,7 +13,7 @@ Feel free to open a PR to support new platforms.
 
 ## Installation
 
-1. Add `install_referrer: ^1.2.0` to your `pubspec.yaml` file.
+1. Add `install_referrer: ^1.2.1` to your `pubspec.yaml` file.
 2. Import `import 'package:install_referrer/install_referrer.dart';`
 3. Get the value by invoking the `Future` `InstallReferrer.referrer`
 
@@ -21,13 +21,16 @@ Feel free to open a PR to support new platforms.
 
 ### Android
 
-| Store               | Value                                             |
-|---------------------|---------------------------------------------------|
-| Google Play         | `InstallationAppReferrer.androidGooglePlay`       |
-| Amazon App Store    | `InstallationAppReferrer.androidAmazonAppStore`   |
-| Huawei App Gallery  | `InstallationAppReferrer.androidHuaweiAppGallery` |
-| Samsung App Shop    | `InstallationAppReferrer.androidSamsungAppShop`   |
-| Others              | `InstallationAppReferrer.androidManually`         |
+| Store              | Value                                             |
+|--------------------|---------------------------------------------------|
+| Google Play        | `InstallationAppReferrer.androidGooglePlay`       |
+| Amazon App Store   | `InstallationAppReferrer.androidAmazonAppStore`   |
+| Huawei App Gallery | `InstallationAppReferrer.androidHuaweiAppGallery` |
+| Oppo App Market    | `InstallationAppReferrer.androidOppoAppMarket`   |
+| Samsung App Shop   | `InstallationAppReferrer.androidSamsungAppShop`   |
+| Vivo App Store     | `InstallationAppReferrer.androidVivoAppStore`   |
+| Xiaomi App Store   | `InstallationAppReferrer.androidXiaomiAppStore`   |
+| Others             | `InstallationAppReferrer.androidManually`         |
 
 If the application was installed from a third party app (eg: GMail, Google Drive, Chrome…), it will be considered as a **manual installation** (`InstallationAppReferrer.androidManually`).
 

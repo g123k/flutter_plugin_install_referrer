@@ -30,8 +30,14 @@ enum InstallationAppReferrer {
   androidAmazonAppStore,
   // Android / Harmony OS - Huawei App Gallery
   androidHuaweiAppGallery,
+  // Android - Oppo App Market
+  androidOppoAppMarket,
   // Android - Samsung AppShop
   androidSamsungAppShop,
+  // Android - Vivo App Store
+  androidVivoAppStore,
+  // Android - Xiaomi App Store
+  androidXiaomiAppStore,
   // Android - Manually (from a third party like Chrome, GMail…)
   androidManually,
   // Android - Debug mode

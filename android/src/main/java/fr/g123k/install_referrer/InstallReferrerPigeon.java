@@ -40,9 +40,12 @@ public class InstallReferrerPigeon {
     googlePlay(2),
     amazonAppStore(3),
     huaweiAppGallery(4),
-    samsungAppShop(5),
-    manually(6),
-    unknown(7);
+    oppoAppMarket(5),
+    samsungAppShop(6),
+    vivoAppStore(7),
+    xiaomiAppStore(8),
+    manually(9),
+    unknown(10);
 
     private int index;
     private IRInstallationPlatform(final int index) {

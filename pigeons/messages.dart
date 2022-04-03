@@ -46,7 +46,10 @@ enum IRInstallationPlatform {
   googlePlay,
   amazonAppStore,
   huaweiAppGallery,
+  oppoAppMarket,
   samsungAppShop,
+  vivoAppStore,
+  xiaomiAppStore,
   manually,
   unknown,
 }

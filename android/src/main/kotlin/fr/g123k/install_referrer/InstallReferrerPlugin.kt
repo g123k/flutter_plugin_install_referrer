@@ -71,6 +71,27 @@ class InstallReferrerPlugin : FlutterPlugin, InstallReferrerPigeon.InstallReferr
                         platform = InstallReferrerPigeon.IRInstallationPlatform.samsungAppShop,
                     )
                 )
+            } else if (installerPackageName == "com.oppo.market") {
+                result?.success(
+                    generateResult(
+                        type = InstallReferrerPigeon.IRInstallationType.appStore,
+                        platform = InstallReferrerPigeon.IRInstallationPlatform.oppoAppMarket,
+                    )
+                )
+            } else if (installerPackageName == "com.vivo.appstore") {
+                result?.success(
+                    generateResult(
+                        type = InstallReferrerPigeon.IRInstallationType.appStore,
+                        platform = InstallReferrerPigeon.IRInstallationPlatform.vivoAppStore,
+                    )
+                )
+            } else if (installerPackageName == "com.xiaomi.mipicks") {
+                result?.success(
+                    generateResult(
+                        type = InstallReferrerPigeon.IRInstallationType.appStore,
+                        platform = InstallReferrerPigeon.IRInstallationPlatform.xiaomiAppStore,
+                    )
+                )
             } else if (installerPackageName == "com.google.android.packageinstaller") {
                 result?.success(
                     generateResult(
